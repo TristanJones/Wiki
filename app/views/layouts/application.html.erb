@@ -6,8 +6,28 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>/
-	<%= render 'layouts/navigation' %>
+<body>
+
+<div class="sidebar">
+<%= render 'layouts/sidebar' %>
+</div>
+
+<div class="main">
+<div class="header">
+<%= render 'layouts/header' %>
+</div>
+<hr />
+<div class="body">
 <%= yield %>
+</div>
+
+
+</div>
+
+<div class="footer">
+<hr />
+<%= render 'layouts/footer' %>
+</div>
+
 </body>
 </html>
