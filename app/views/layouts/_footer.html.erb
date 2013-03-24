@@ -1,1 +1,6 @@
-Admin Page
+<% if current_user.admin? %>
+  	Admin Page
+<% else %>
+	Admin Page
+<% end %>
+
