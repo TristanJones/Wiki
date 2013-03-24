@@ -1,0 +1,46 @@
+@mixin calc($property, $expression) { 
+  	#{$property}: -moz-calc(#{$expression}); 
+  	#{$property}: -o-calc(#{$expression}); 
+  	#{$property}: -webkit-calc(#{$expression}); 
+  	#{$property}: calc(#{$expression}); 
+} 
+
+.sidebar {
+	float: left;
+	height: 400px;
+	width: 160px;
+}
+
+.main {
+	float: left;
+	@include calc(width, "100% - 200px");
+	padding: 10px 20px 10px 20px
+}
+
+.header {
+	height: 75px;
+}
+
+.body {
+	float: left;
+}
+
+.footer {
+	float: left;
+	height: 20px;
+	width: 100%;
+	text-align: center;
+	font-size: 12px;
+	padding-bottom: 0px;
+	padding-top: 6px;	
+}
+
+ul.nav {
+	float: right;
+  	list-style: none;
+  	margin: 0 0 2em;
+  	padding: 0;
+}
+ul.nav li {
+  	display: inline;
+}
