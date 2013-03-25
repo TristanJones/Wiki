@@ -1,4 +1,7 @@
 Wiki::Application.routes.draw do
+  resources :wiki_pages
+
+
   devise_for :users
 
   get "home/index"

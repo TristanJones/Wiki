@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @wiki_page.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @wiki_page.content %>
+</p>
+
+<p>
+  <b>Created by:</b>
+  <%= @wiki_page.created_by %>
+</p>
+
+<p>
+  <b>Creation date:</b>
+  <%= @wiki_page.creation_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_wiki_page_path(@wiki_page) %> |
+<%= link_to 'Back', wiki_pages_path %>
