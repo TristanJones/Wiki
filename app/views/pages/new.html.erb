@@ -1,0 +1,23 @@
+<h1>Add a new Page</h1>
+
+<%= form_for @page do |p| %>
+	<% if @page.errors.any? %>
+		<h2>Errors:</h2>
+		<ul>
+			<% @page.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+		</ul>
+	<% end %>
+	<p>
+		<%= p.label :title %><br />
+		<%= p.text_field :title %>
+	</p>
+	<p>
+		<%= p.label :content %><br />
+		<%= p.text_area :content %>
+	</p>
+	<p>
+		<%= p.submit "Add a New Page" %>
+	</p>
+<% end %>

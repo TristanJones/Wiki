@@ -1,0 +1,9 @@
+<h1><%= @page.title %></h1>
+
+<% markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
+:autolink => true, :space_after_headers => true, :superscript => true,
+:tables => true, :fenced_code_blocks  => true, :strikethrough => true) %>
+
+<p><%= markdown.render(@page.content).html_safe %></p>
+
+<small><%= @page.created_at %></small>

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class WikiPageTest < ActiveSupport::TestCase
+class PagesControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end
