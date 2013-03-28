@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+
 	def index
 		@pages = Page.search(params[:search])
 	end
@@ -13,7 +14,7 @@ class PagesController < ApplicationController
 
 	def create
 		@page = Page.new(params[:page])
-
+		@page.update_attribute(:created_by, current_user.username)
 		if @page.save
 			redirect_to pages_path, :notice => "The page was saved"
 		else
@@ -27,7 +28,6 @@ class PagesController < ApplicationController
 
 	def update
 		@page = Page.find(params[:id])
-		@page.update_attribute(:created_by, current_user.username)
 		if @page.update_attributes(params[:page])
 			redirect_to pages_path, :notice => "The page was updated"
 		else

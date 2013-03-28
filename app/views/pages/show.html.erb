@@ -6,4 +6,5 @@
 
 <p><%= markdown.render(@page.content).html_safe %></p>
 
-<small><%= @page.created_at %></small>
+<small>Date Created: <%= @page.created_at %></small><br />
+<small>Last Updated: <%= @page.updated_at %></small>

@@ -6,9 +6,13 @@
 	<td class = "firstcolumn"><%= link_to page.title, page, :class => 'links' %> created by <%= page.created_by %></td>
 	<td class = "secondcolumn"><%= page.created_at.to_date() %></td>
 	<td class = "thirdcolumn"><%= link_to "Edit", edit_page_path(page), :class => 'links' %></td>
+		<% if current_user%>
 	<td class = "fourthcolumn"><%= link_to "Delete", page, :confirm => "Do you wish to delete this page?", :method => :delete,  :class => 'links'%></td>
+		<% end %>
 	</tr>
 <% end %>
 </table>
 
-<p><%= link_to "Add a New Page", new_page_path,  :class => 'links'%></p>
+		<% if current_user%>
+  		<p><%= link_to "Add a New Page", new_page_path,  :class => 'links'%></p>
+		<% end %>

@@ -1,4 +1,4 @@
-<h1>Add a new Page</h1>
+<h1>Add a New Page</h1>
 
 <%= form_for @page do |p| %>
 	<% if @page.errors.any? %>
@@ -18,6 +18,8 @@
 		<%= p.text_area :content %>
 	</p>
 	<p>
-		<%= p.submit "Add a New Page" %>
+		<% if current_user%>
+  		<%= p.submit "Add a New Page" %>
+		<% end %>
 	</p>
 <% end %>

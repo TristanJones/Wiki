@@ -11,7 +11,7 @@
 	<% end %>
 	<p>
 		<%= p.label :title %><br />
-		<%= p.text_field :title %>
+		<%= p.text_field :title, :readonly => true %>
 	</p>
 	<p>
 		<%= p.label :content %><br />
@@ -19,7 +19,7 @@
 	</p>
 	<p>
 		<%= p.label :created_by %><br />
-		<%= p.text_field :created_by %>
+		<%= p.text_field :created_by, :readonly => true %>
 	</p>
 	<p>
 		<%= p.submit "Update Post" %>

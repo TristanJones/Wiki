@@ -1,9 +1,9 @@
 <%= link_to (image_tag("/lourve_small.png")), pages_path %>
 
-<%# @pages.each do |page| %>
-<%#<ul class = 'sidelinks'>
+<%if @pages then @pages.each do |page| %>
+<ul class = 'sidelinks'>
 	<li>
 		<%= link_to page.title, page, :class => 'links' %>
-<%#	</li>
+	</li>
 </ul>
-<%# end %>
+<% end %><% end %>

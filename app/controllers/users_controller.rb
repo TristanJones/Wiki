@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_filter :authenticate_user!
+		before_filter :authenticate_user!
 
 	def index
 		@users = User.search(params[:search])
@@ -7,17 +7,18 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-	end
-
-	def update
-		@user = User.find(params[:id])
-		if user.admin == false
+		if @user.admin == false
 		@user.update_attribute(:admin, true)
 		redirect_to users_path, :notice => "The user has been made admin"
 		else
 		@user.update_attribute(:admin, false)
 		redirect_to users_path, :notice => "The user has been removed as an admin"
 		end
+	end
+
+	def update
+		@user = User.find(params[:id])
+
 	end
 
 	def destroy
