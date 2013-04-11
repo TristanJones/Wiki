@@ -1,10 +1,28 @@
 Wiki::Application.routes.draw do
-  devise_for :admins
+  resources :pages do
+    collection do
+      get 'search'
+    end
+  end
 
   devise_for :users
+  resources :users do
+    collection do
+      get 'search'
+    end
+  end
 
   get "home/index"
+  get "users/index"
 
+  devise_for :users, :path_names => {:sign_in => "login", :sign_out => "logout"}, :path => "d" 
+  resources :users
+  
+
+  root :to => 'home#index'
+  post 'users/:id' => 'users#update'
+
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -54,7 +72,7 @@ Wiki::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'home#index'
+   
 
   # See how all your routes lay out with "rake routes"
 
@@ -62,7 +80,5 @@ Wiki::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
 
-  devise_for :users, :path_names => {:sign_in => "login", :sign_out => "logout"}, :path => "d" 
-  resources :users
 
-end
+

@@ -1,0 +1,27 @@
+<br/>
+<%= form_tag users_path, :method => 'get' do %>
+  <div>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </div>
+<% end %>
+
+<h2>Administration Page</h2>
+	<table>
+<% @users.each do |user| %>
+	<tr>
+	<td class = "firstcolumn"><%= user.username %></td>
+	<% if current_user and current_user.admin?%>
+	<td class = "secondcolumn"><% if user.admin == false %>
+	<%= link_to "Make Admin", user, :confirm => "Do you wish to make this user an admin?",
+	:class => "links" %>
+	<% else %>
+	<%= link_to "Remove Admin", user, :confirm => "Do you wish to remove this user as admin?",
+	:class => "links" %>
+	<% end %></td>
+	<td class = "thirdcolumn"><%= link_to "Delete", user, :confirm => "Do you wish to ban this user?", 
+		:method => :delete, :class => "links" %></td>
+		<% end %>
+	</tr>
+<% end %>
+</table>
